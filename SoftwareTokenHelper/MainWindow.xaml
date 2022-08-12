@@ -1,0 +1,203 @@
+﻿<Window
+    x:Class="SoftwareTokenHelper.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SoftwareTokenHelper"
+    mc:Ignorable="d"
+    Title="MainWindow"
+    Height="600"
+    Width="1200">
+    <DockPanel>
+        <Menu
+            DockPanel.Dock="Top">
+            <MenuItem
+                Header="File">
+                <MenuItem
+                    Header="Close" />
+            </MenuItem>
+            <MenuItem
+                Header="Setting">
+                <MenuItem
+                    Header="Setting" />
+            </MenuItem>
+            <MenuItem
+                Header="Help">
+                <MenuItem
+                    Header="About" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="3*" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <TabControl
+                Grid.Column="0"
+                Margin="5">
+                <TabItem
+                    Header="Auth Entity Request">
+                    <UniformGrid
+                        Rows="1"
+                        Columns="3">
+                        <DockPanel>
+                            <Button
+                                Content="Auth Entity Request"
+                                DockPanel.Dock="Bottom"
+                                Height="30"
+                                Margin="5" />
+                            <DockPanel
+                                DockPanel.Dock="Bottom"
+                                Margin="5">
+                                <Label
+                                    Content="Count:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text=""
+                                    Height="30" />
+                            </DockPanel>
+                            <DockPanel
+                                DockPanel.Dock="Bottom"
+                                Margin="5">
+                                <Label
+                                    Content="PPID:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text=""
+                                    Height="30" />
+                            </DockPanel>
+                            <DataGrid
+                                Margin="5" />
+                        </DockPanel>
+                        <DockPanel>
+                            <Button
+                                Content="File Name Request"
+                                DockPanel.Dock="Bottom"
+                                Height="30"
+                                Margin="5" />
+                            <DockPanel
+                                DockPanel.Dock="Bottom"
+                                Margin="5">
+                                <Label
+                                    Content="Request ID:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text=""
+                                    Height="30" />
+                            </DockPanel>
+                            <DataGrid
+                                Margin="5" />
+                        </DockPanel>
+                        <DockPanel>
+                            <Button
+                                Content="File Download"
+                                DockPanel.Dock="Bottom"
+                                Height="30"
+                                Margin="5" />
+                            <DockPanel
+                                DockPanel.Dock="Bottom"
+                                Margin="5">
+                                <Label
+                                    Content="File Name:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text=""
+                                    Height="30" />
+                            </DockPanel>
+                            <DataGrid
+                                Margin="5" />
+                        </DockPanel>
+                    </UniformGrid>
+                </TabItem>
+                <TabItem
+                    Header="Register Auth Entity"></TabItem>
+                <TabItem
+                    Header="Destroy Auth Entity"></TabItem>
+                <TabItem
+                    Header="Mutual Auth"
+                    DataContext="{Binding MutualAuthTab}"
+                    Height="19"
+                    VerticalAlignment="Top">
+                    <UniformGrid
+                        Rows="1"
+                        Columns="2">
+                        <GroupBox
+                            Header="Server"
+                            Margin="5">
+                            <DockPanel>
+                                <DockPanel
+                                    DockPanel.Dock="Top"
+                                    Margin="5">
+                                    <Label
+                                        Content="Certificate:"
+                                        VerticalContentAlignment="Center"
+                                        DockPanel.Dock="Left"
+                                        Height="30" />
+                                    <TextBox
+                                        Text="{Binding CrtFile}"
+                                        IsReadOnly="True"
+                                        VerticalContentAlignment="Center"
+                                        Height="30"
+                                        MouseDoubleClick="TextBoxCrtFile_MouseDoubleClick" />
+                                </DockPanel>
+                                <TextBox
+                                    Text="{Binding CrtContent}"
+                                    IsReadOnly="True"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    VerticalScrollBarVisibility="Auto"
+                                    Margin="5" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox
+                            Header="Client"
+                            Margin="5">
+                            <DockPanel>
+                                <DockPanel
+                                    DockPanel.Dock="Top"
+                                    Margin="5">
+                                    <Label
+                                        Content="Private Key:"
+                                        VerticalContentAlignment="Center"
+                                        DockPanel.Dock="Left"
+                                        Height="30" />
+                                    <TextBox
+                                        Text="{Binding PkeyFile}"
+                                        IsReadOnly="True"
+                                        VerticalContentAlignment="Center"
+                                        Height="30"
+                                        MouseDoubleClick="TextBoxPkeyFile_MouseDoubleClick" />
+                                </DockPanel>
+                                <TextBox
+                                    Text="{Binding PkeyContent}"
+                                    IsReadOnly="True"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    VerticalScrollBarVisibility="Auto"
+                                    Margin="5" />
+                            </DockPanel>
+                        </GroupBox>
+                    </UniformGrid>
+                </TabItem>
+            </TabControl>
+            <GridSplitter
+                Width="2" />
+            <DockPanel
+                Grid.Column="1">
+                <Button
+                    Content="Clear Log"
+                    DockPanel.Dock="Bottom"
+                    Height="30"
+                    Margin="5" />
+                <TextBox
+                    IsReadOnly="True"
+                    Margin="5" />
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Window>
