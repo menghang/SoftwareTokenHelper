@@ -3,7 +3,7 @@
     class MainWindowVM : BaseViewModel
     {
 
-        public MutualAuthTabVM MutualAuthTab
+        public ClientSettingTabVM MutualAuthTab
         {
             get;
             private set;
@@ -11,7 +11,7 @@
 
         public MainWindowVM()
         {
-            this.MutualAuthTab = new MutualAuthTabVM();
+            this.MutualAuthTab = new ClientSettingTabVM();
         }
     }
 }

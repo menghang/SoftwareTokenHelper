@@ -39,7 +39,7 @@
                 Grid.Column="0"
                 Margin="5">
                 <TabItem
-                    Header="Auth Entity Request">
+                    Header="Request">
                     <UniformGrid
                         Rows="1"
                         Columns="3">
@@ -58,6 +58,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text=""
+                                    VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DockPanel
@@ -69,6 +70,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text=""
+                                    VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
@@ -89,6 +91,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text=""
+                                    VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
@@ -109,6 +112,19 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text=""
+                                    VerticalContentAlignment="Center"
+                                    Height="30" />
+                            </DockPanel>
+                            <DockPanel
+                                DockPanel.Dock="Bottom"
+                                Margin="5">
+                                <Label
+                                    Content="Request ID:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text=""
+                                    VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
@@ -117,71 +133,63 @@
                     </UniformGrid>
                 </TabItem>
                 <TabItem
-                    Header="Register Auth Entity"></TabItem>
+                    Header="Register"></TabItem>
                 <TabItem
-                    Header="Destroy Auth Entity"></TabItem>
+                    Header="Destroy"></TabItem>
                 <TabItem
-                    Header="Mutual Auth"
+                    Header="Client Setting"
                     DataContext="{Binding MutualAuthTab}"
                     Height="19"
                     VerticalAlignment="Top">
                     <UniformGrid
                         Rows="1"
                         Columns="2">
-                        <GroupBox
-                            Header="Server"
-                            Margin="5">
-                            <DockPanel>
-                                <DockPanel
-                                    DockPanel.Dock="Top"
-                                    Margin="5">
-                                    <Label
-                                        Content="Certificate:"
-                                        VerticalContentAlignment="Center"
-                                        DockPanel.Dock="Left"
-                                        Height="30" />
-                                    <TextBox
-                                        Text="{Binding CrtFile}"
-                                        IsReadOnly="True"
-                                        VerticalContentAlignment="Center"
-                                        Height="30"
-                                        MouseDoubleClick="TextBoxCrtFile_MouseDoubleClick" />
-                                </DockPanel>
+                        <DockPanel>
+                            <DockPanel
+                                DockPanel.Dock="Top"
+                                Margin="5">
+                                <Label
+                                    Content="Certificate:"
+                                    VerticalContentAlignment="Center"
+                                    DockPanel.Dock="Left"
+                                    Height="30" />
                                 <TextBox
-                                    Text="{Binding CrtContent}"
+                                    Text="{Binding CrtFile}"
                                     IsReadOnly="True"
-                                    HorizontalScrollBarVisibility="Auto"
-                                    VerticalScrollBarVisibility="Auto"
-                                    Margin="5" />
+                                    VerticalContentAlignment="Center"
+                                    Height="30"
+                                    MouseDoubleClick="TextBoxCrtFile_MouseDoubleClick" />
                             </DockPanel>
-                        </GroupBox>
-                        <GroupBox
-                            Header="Client"
-                            Margin="5">
-                            <DockPanel>
-                                <DockPanel
-                                    DockPanel.Dock="Top"
-                                    Margin="5">
-                                    <Label
-                                        Content="Private Key:"
-                                        VerticalContentAlignment="Center"
-                                        DockPanel.Dock="Left"
-                                        Height="30" />
-                                    <TextBox
-                                        Text="{Binding PkeyFile}"
-                                        IsReadOnly="True"
-                                        VerticalContentAlignment="Center"
-                                        Height="30"
-                                        MouseDoubleClick="TextBoxPkeyFile_MouseDoubleClick" />
-                                </DockPanel>
+                            <TextBox
+                                Text="{Binding CrtContent}"
+                                IsReadOnly="True"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Auto"
+                                Margin="5" />
+                        </DockPanel>
+                        <DockPanel>
+                            <DockPanel
+                                DockPanel.Dock="Top"
+                                Margin="5">
+                                <Label
+                                    Content="Private Key:"
+                                    VerticalContentAlignment="Center"
+                                    DockPanel.Dock="Left"
+                                    Height="30" />
                                 <TextBox
-                                    Text="{Binding PkeyContent}"
+                                    Text="{Binding PkeyFile}"
                                     IsReadOnly="True"
-                                    HorizontalScrollBarVisibility="Auto"
-                                    VerticalScrollBarVisibility="Auto"
-                                    Margin="5" />
+                                    VerticalContentAlignment="Center"
+                                    Height="30"
+                                    MouseDoubleClick="TextBoxPkeyFile_MouseDoubleClick" />
                             </DockPanel>
-                        </GroupBox>
+                            <TextBox
+                                Text="{Binding PkeyContent}"
+                                IsReadOnly="True"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Auto"
+                                Margin="5" />
+                        </DockPanel>
                     </UniformGrid>
                 </TabItem>
             </TabControl>

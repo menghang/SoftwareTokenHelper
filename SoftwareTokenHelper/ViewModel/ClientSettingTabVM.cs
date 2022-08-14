@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SoftwareTokenHelper.ViewModel
 {
-    internal class MutualAuthTabVM : BaseViewModel
+    internal class ClientSettingTabVM : BaseViewModel
     {
         private string crtFile = string.Empty;
         public string CrtFile
