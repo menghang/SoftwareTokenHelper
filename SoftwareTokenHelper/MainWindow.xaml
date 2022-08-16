@@ -39,7 +39,8 @@
                 Grid.Column="0"
                 Margin="5">
                 <TabItem
-                    Header="Request">
+                    Header="Request"
+                    DataContext="{Binding TokenRequestTab}">
                     <UniformGrid
                         Rows="1"
                         Columns="3">
@@ -57,7 +58,7 @@
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                                 <TextBox
-                                    Text=""
+                                    Text="{Binding Count}"
                                     VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
@@ -69,12 +70,55 @@
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                                 <TextBox
-                                    Text=""
+                                    Text="{Binding PPID}"
                                     VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
-                                Margin="5" />
+                                ItemsSource="{Binding AuthEntityRequestTable}"
+                                SelectedItem="{Binding SelectedAuthEntityRequest}"
+                                AutoGenerateColumns="False"
+                                CanUserResizeRows="False"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                SelectionMode="Single"
+                                IsReadOnly="True"
+                                RowHeight="27"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                Margin="5">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn
+                                        Header="Done"
+                                        Binding="{Binding Done,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellCheckBoxStyle}" />
+                                    <DataGridTextColumn
+                                        Header="PPID"
+                                        Binding="{Binding PPID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Count"
+                                        Binding="{Binding Count,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Request ID"
+                                        Binding="{Binding RequestID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Download Availablity"
+                                        Binding="{Binding DownloadAvailability,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Timestamp"
+                                        Binding="{Binding TimeStamp,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </DockPanel>
                         <DockPanel>
                             <Button
@@ -90,12 +134,45 @@
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                                 <TextBox
-                                    Text=""
+                                    Text="{Binding RequestID}"
                                     VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
-                                Margin="5" />
+                                ItemsSource="{Binding FileNameRequestTable}"
+                                SelectedItem="{Binding SelectedFileNameRequest}"
+                                AutoGenerateColumns="False"
+                                CanUserResizeRows="False"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                SelectionMode="Single"
+                                IsReadOnly="True"
+                                RowHeight="27"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                Margin="5">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn
+                                        Header="Done"
+                                        Binding="{Binding Done,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellCheckBoxStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Request ID"
+                                        Binding="{Binding RequestID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="File UUID"
+                                        Binding="{Binding UUID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Timestamp"
+                                        Binding="{Binding TimeStamp,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </DockPanel>
                         <DockPanel>
                             <Button
@@ -111,7 +188,7 @@
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                                 <TextBox
-                                    Text=""
+                                    Text="{Binding FileName}"
                                     VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
@@ -123,12 +200,65 @@
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                                 <TextBox
-                                    Text=""
+                                    Text="{Binding RequestID}"
                                     VerticalContentAlignment="Center"
                                     Height="30" />
                             </DockPanel>
                             <DataGrid
-                                Margin="5" />
+                                ItemsSource="{Binding TokenTable}"
+                                SelectedItem="{Binding SelectedToken}"
+                                AutoGenerateColumns="False"
+                                CanUserResizeRows="False"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                SelectionMode="Single"
+                                IsReadOnly="True"
+                                RowHeight="27"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                Margin="5">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn
+                                        Header="Done"
+                                        Binding="{Binding Done,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellCheckBoxStyle}" />
+                                    <DataGridTextColumn
+                                        Header="PPID"
+                                        Binding="{Binding PPID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Token ID"
+                                        Binding="{Binding TokenID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Request ID"
+                                        Binding="{Binding RequestID,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="File Name"
+                                        Binding="{Binding FileName,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Token"
+                                        Binding="{Binding Token,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="CRC"
+                                        Binding="{Binding CRC,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                    <DataGridTextColumn
+                                        Header="Timestamp"
+                                        Binding="{Binding TimeStamp,Mode=OneWay}"
+                                        IsReadOnly="True"
+                                        ElementStyle="{StaticResource CellTextBlockStyle}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </DockPanel>
                     </UniformGrid>
                 </TabItem>
@@ -138,9 +268,7 @@
                     Header="Destroy"></TabItem>
                 <TabItem
                     Header="Client Setting"
-                    DataContext="{Binding MutualAuthTab}"
-                    Height="19"
-                    VerticalAlignment="Top">
+                    DataContext="{Binding ClientSettingTab}">
                     <UniformGrid
                         Rows="1"
                         Columns="2">
@@ -192,6 +320,102 @@
                         </DockPanel>
                     </UniformGrid>
                 </TabItem>
+                <TabItem
+                    Header="Server Setting"
+                    DataContext="{Binding ServerSettingTab}">
+                    <UniformGrid
+                        Rows="1"
+                        Columns="2">
+                        <StackPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="Server URL:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding ServerUrl}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="Auth Entity Request URI:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding AuthEntityRequestUri}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="File Name Request URI:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding FileNameRequestUri}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="File Download URI:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding FileDownloadUri}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="Register Auth Entity URI:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding RegisterAuthEntityUri}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="Destroy Auth Entity URI:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding DestroyAuthEntityUri}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <DockPanel
+                                Margin="5">
+                                <Label
+                                    Content="User Agent:"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                                <TextBox
+                                    Text="{Binding UserAgent}"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    VerticalContentAlignment="Center" />
+                            </DockPanel>
+                        </StackPanel>
+                    </UniformGrid>
+                </TabItem>
             </TabControl>
             <GridSplitter
                 Width="2" />
@@ -203,6 +427,7 @@
                     Height="30"
                     Margin="5" />
                 <TextBox
+                    Name="TextBoxLog"
                     IsReadOnly="True"
                     Margin="5" />
             </DockPanel>

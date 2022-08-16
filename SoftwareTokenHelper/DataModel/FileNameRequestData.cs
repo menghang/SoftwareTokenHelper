@@ -9,6 +9,12 @@ namespace SoftwareTokenHelper.DataModel
 {
     internal class FileNameRequestData : BaseViewModel
     {
+        private bool done = false;
+        public bool Done
+        {
+            get => this.done;
+            set => SetProperty(ref this.done, value);
+        }
         private string requestID = string.Empty;
         public string RequestID
         {
@@ -20,6 +26,12 @@ namespace SoftwareTokenHelper.DataModel
         {
             get => this.fileName;
             set => SetProperty(ref this.fileName, value);
+        }
+        private string timestamp = string.Empty;
+        public string Timestamp
+        {
+            get => this.timestamp;
+            set => SetProperty(ref this.timestamp, value);
         }
 
         public override bool Equals(object? obj)

@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SoftwareTokenHelper"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary
+            Source="Styles.xaml" />
     </Application.Resources>
 </Application>

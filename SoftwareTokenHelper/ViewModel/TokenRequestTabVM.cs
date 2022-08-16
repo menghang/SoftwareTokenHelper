@@ -14,7 +14,7 @@ namespace SoftwareTokenHelper.ViewModel
         private string ppid = string.Empty;
         public string PPID
         {
-            get => this.PPID;
+            get => this.ppid;
             set => SetProperty(ref this.ppid, value);
         }
 
@@ -45,15 +45,35 @@ namespace SoftwareTokenHelper.ViewModel
 
         public string fileName = string.Empty;
         public string FileName
-        { 
+        {
             get => this.fileName;
             set => SetProperty(ref this.fileName, value);
         }
 
-        public ObservableCollection<AuthEntityRequestData> AuthEntityRequestTable { get; private set; } = new();
+        private ObservableCollection<AuthEntityRequestData> authEntityRequestTable = new();
+        public ObservableCollection<AuthEntityRequestData> AuthEntityRequestTable
+        {
+            get => this.authEntityRequestTable;
+            set => SetProperty(ref this.authEntityRequestTable, value);
+        }
+        public AuthEntityRequestData SelectedAuthEntityRequest { get; set; } = new();
 
-        public ObservableCollection<FileNameRequestData> FileNameRequestTable { get; private set; } = new();
+        private ObservableCollection<FileNameRequestData> fileNameRequestTable = new();
+        public ObservableCollection<FileNameRequestData> FileNameRequestTable
+        {
+            get => this.fileNameRequestTable;
+            set => SetProperty(ref this.fileNameRequestTable, value);
+        }
+        public FileNameRequestData SelectedFileNameRequest { get; set; } = new();
 
-        public ObservableCollection<TokenFileData> TokenFileTable { get; private set; } = new();
+
+        private ObservableCollection<TokenData> tokenTable = new();
+        public ObservableCollection<TokenData> TokenTable
+        {
+            get => this.tokenTable;
+            set => SetProperty(ref this.tokenTable, value);
+        }
+        public TokenData SelectedToken { get; set; } = new();
+
     }
 }

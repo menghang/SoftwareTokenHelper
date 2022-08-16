@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace SoftwareTokenHelper.DataModel
 {
-    internal class TokenFileData : BaseViewModel
+    internal class TokenData : BaseViewModel
     {
+        private bool done = false;
+        public bool Done
+        {
+            get => this.done;
+            set => SetProperty(ref this.done, value);
+        }
         private string ppid = string.Empty;
         public string PPID
         {
@@ -45,16 +51,22 @@ namespace SoftwareTokenHelper.DataModel
             get => this.fileName;
             set => SetProperty(ref this.fileName, value);
         }
+        private string timestamp = string.Empty;
+        public string Timestamp
+        {
+            get => this.timestamp;
+            set => SetProperty(ref this.timestamp, value);
+        }
 
         public override bool Equals(object? obj)
         {
-            if (obj == null || obj.GetType() != typeof(TokenFileData))
+            if (obj == null || obj.GetType() != typeof(TokenData))
             {
                 return false;
             }
             else
             {
-                return (obj as TokenFileData)!.TokenID.Equals(this.TokenID);
+                return (obj as TokenData)!.TokenID.Equals(this.TokenID);
             }
         }
 

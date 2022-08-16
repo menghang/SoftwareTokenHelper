@@ -31,8 +31,8 @@ namespace SoftwareTokenHelper
         {
             if (LoadFile(out string file))
             {
-                this.view.MutualAuthTab.CrtFile = file;
-                this.view.MutualAuthTab.UpdateCrtContent();
+                this.view.ClientSettingTab.CrtFile = file;
+                this.view.ClientSettingTab.UpdateCrtContent();
             }
         }
 
@@ -40,8 +40,8 @@ namespace SoftwareTokenHelper
         {
             if (LoadFile(out string file))
             {
-                this.view.MutualAuthTab.PkeyFile = file;
-                this.view.MutualAuthTab.UpdatePkeyContent();
+                this.view.ClientSettingTab.PkeyFile = file;
+                this.view.ClientSettingTab.UpdatePkeyContent();
             }
         }
 

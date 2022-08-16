@@ -10,7 +10,6 @@ namespace SoftwareTokenHelper.Helper
 {
     internal class TokenHelper
     {
-
         public TokenHelper()
         {
 
