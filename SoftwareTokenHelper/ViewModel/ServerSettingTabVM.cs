@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareTokenHelper.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,39 @@ namespace SoftwareTokenHelper.ViewModel
         {
             get => this.userAgent;
             set => SetProperty(ref this.userAgent, value);
+        }
+
+        public bool enableEdit = false;
+        public bool TextBoxIsReadOnly
+        {
+            get => !this.enableEdit;
+        }
+        public bool ButtonIsEnabled
+        {
+            get => this.enableEdit;
+        }
+
+
+        public void LoadConfig(ConfigHelper config)
+        {
+            this.ServerUrl = config.ServerUrl;
+            this.AuthEntityRequestUri = config.AuthEntityRequestUri;
+            this.FileNameRequestUri = config.FileNameRequestUri;
+            this.FileDownloadUri = config.FileDownloadUri;
+            this.RegisterAuthEntityUri = config.RegisterAuthEntityUri;
+            this.DestroyAuthEntityUri = config.DestroyAuthEntityUri;
+            this.UserAgent = config.UserAgent;
+        }
+
+        public void ExportConfig(ConfigHelper config)
+        {
+            config.ServerUrl = this.ServerUrl;
+            config.AuthEntityRequestUri = this.AuthEntityRequestUri;
+            config.FileNameRequestUri = this.FileNameRequestUri;
+            config.FileDownloadUri = this.FileDownloadUri;
+            config.RegisterAuthEntityUri = this.RegisterAuthEntityUri;
+            config.DestroyAuthEntityUri = this.DestroyAuthEntityUri;
+            config.UserAgent = this.UserAgent;
         }
     }
 }

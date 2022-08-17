@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     Title="MainWindow"
     Height="600"
-    Width="1200">
+    Width="1200"
+    Loaded="Window_Loaded">
     <DockPanel>
         <Menu
             DockPanel.Dock="Top">
@@ -335,7 +336,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding ServerUrl}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -347,7 +348,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding AuthEntityRequestUri}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -359,7 +360,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding FileNameRequestUri}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -371,7 +372,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding FileDownloadUri}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -383,7 +384,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding RegisterAuthEntityUri}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -395,7 +396,7 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding DestroyAuthEntityUri}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
@@ -409,10 +410,26 @@
                                     VerticalContentAlignment="Center" />
                                 <TextBox
                                     Text="{Binding UserAgent}"
-                                    IsReadOnly="True"
+                                    IsReadOnly="{Binding TextBoxIsReadOnly}"
                                     Height="30"
                                     VerticalContentAlignment="Center" />
                             </DockPanel>
+                            <UniformGrid
+                                Rows="1"
+                                Columns="2">
+                                <Button
+                                    Content="Load Setting"
+                                    IsEnabled="{Binding ButtonIsEnabled}"
+                                    Click="ButtonServerSettingLoadConfig_Click"
+                                    Height="30"
+                                    Margin="5"/>
+                                <Button
+                                    Content="Save Setting"
+                                    IsEnabled="{Binding ButtonIsEnabled}"
+                                    Click="ButtonServerSettingSaveConfig_Click"
+                                    Height="30"
+                                    Margin="5" />
+                            </UniformGrid>
                         </StackPanel>
                     </UniformGrid>
                 </TabItem>

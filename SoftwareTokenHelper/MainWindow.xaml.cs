@@ -1,4 +1,5 @@
-﻿using SoftwareTokenHelper.ViewModel;
+﻿using SoftwareTokenHelper.Helper;
+using SoftwareTokenHelper.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,22 @@ namespace SoftwareTokenHelper
     public partial class MainWindow : Window
     {
         private readonly MainWindowVM view;
+        private readonly ConfigHelper config;
 
         public MainWindow()
         {
+            this.config = new();
             InitializeComponent();
             this.view = new MainWindowVM();
             this.DataContext = this.view;
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (await this.config.LoadConfig())
+            {
+                this.view.ServerSettingTab.LoadConfig(this.config);
+            }
         }
 
         private void TextBoxCrtFile_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -60,6 +71,20 @@ namespace SoftwareTokenHelper
             {
                 file = string.Empty;
                 return false;
+            }
+        }
+
+        private async void ButtonServerSettingSaveConfig_Click(object sender, RoutedEventArgs e)
+        {
+            this.view.ServerSettingTab.ExportConfig(this.config);
+            await this.config.SaveConfig();
+        }
+
+        private async void ButtonServerSettingLoadConfig_Click(object sender, RoutedEventArgs e)
+        {
+            if (await this.config.LoadConfig())
+            {
+                this.view.ServerSettingTab.LoadConfig(this.config);
             }
         }
     }
